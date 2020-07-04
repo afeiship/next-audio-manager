@@ -7,15 +7,15 @@
   var NxAudioManager = nx.declare('nx.AudioManager', {
     methods: {
       init: function (inOptions) {
-        var options = nx.mix(null, DEFAULT_OPTIONS, inOptions);
-        this.el = new Audio();
-        nx.mix(this.el, options);
-        this.ctx = new NxAudio(this.el, options);
-        document.body.appendChild(this.el);
+        this.options = nx.mix(null, DEFAULT_OPTIONS, inOptions);
+        this.element = new Audio();
+        nx.mix(this.element, this.options);
+        this.ctx = new NxAudio(this.element, this.options);
+        document.body.appendChild(this.element);
       },
       destroy: function () {
         this.ctx.destroy();
-        document.documentElement.remove(this.el);
+        document.documentElement.remove(this.element);
       }
     }
   });
