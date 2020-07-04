@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Audio Test Page</title>
+  <style>
+    body{
+      /* text-align: center; */
+    }
+    button{
+      padding:10px 20px;
+      display: block;
+      background: #007aff;
+      color: #fff;
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 10px;;
+    }
+
+  </style>
+</head>
+
+<body>
+  <script src="/@feizheng/next-js-core2/dist/next-js-core2.js"></script>
+  <script src="/@feizheng/next-dom-event/dist/next-dom-event.js"></script>
+  <script src="/@feizheng/next-audio/dist/next-audio.js"></script>
+  <script src="/next-audio-manager.js"></script>
+
+  <button id="btn-play">Play</button>
+  <button id="btn-pause">Pause</button>
+  <button id="btn-stop">Stop</button>
+
+  <script>
+    var $ = function (id) {
+      return document.getElementById(id);
+    };
+
+    var audioMgr = new nx.AudioManager({
+      controls: false,
+      src: 'https://course-assets.alo7.com/generate/pieces/fb0/fb0c51aa44763bdd5b21ec4e97643ca74708d73af51ce3a7be777bc8e0566264.mp3',
+      onChange: function (inEvent) {
+        console.log(inEvent);
+      }
+    });
+
+    $('btn-play').onclick = function (params) {
+      audioMgr.ctx.play();
+      console.log(
+        audioMgr.ctx.play()
+      );
+
+    };
+    $('btn-pause').onclick = function (params) {
+      audioMgr.ctx.pause();
+    };
+    $('btn-stop').onclick = function (params) {
+      audioMgr.ctx.stop();
+    };
+
+    console.log(audioMgr);
+  </script>
+</body>
+
+</html>
