@@ -2,8 +2,8 @@
  * name: @feizheng/next-audio-manager
  * description: Audio manager.
  * homepage: https://github.com/afeiship/next-audio-manager
- * version: 1.0.0
- * date: 2020-07-04T15:33:53.547Z
+ * version: 1.0.1
+ * date: 2020-07-04T15:34:45.404Z
  * license: MIT
  */
 
