@@ -10,12 +10,11 @@
         this.options = nx.mix(null, DEFAULT_OPTIONS, inOptions);
         this.element = new Audio();
         nx.mix(this.element, this.options);
-        this.ctx = new NxAudio(this.element, this.options);
+        this.context = new NxAudio(this.element, this.options);
         document.body.appendChild(this.element);
       },
       destroy: function () {
-        this.ctx.destroy();
-        document.documentElement.remove(this.element);
+        this.context.destroy();
       }
     }
   });
