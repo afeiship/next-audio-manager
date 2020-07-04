@@ -7,19 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Audio Test Page</title>
   <style>
-    body{
+    body {
       /* text-align: center; */
     }
-    button{
-      padding:10px 20px;
+
+    button {
+      padding: 10px 20px;
       display: block;
       background: #007aff;
       color: #fff;
       width: 80%;
       margin: 0 auto;
-      margin-bottom: 10px;;
+      margin-bottom: 10px;
+      ;
     }
-
   </style>
 </head>
 
@@ -32,6 +33,7 @@
   <button id="btn-play">Play</button>
   <button id="btn-pause">Pause</button>
   <button id="btn-stop">Stop</button>
+  <button id="btn-destroy">Destroy</button>
 
   <script>
     var $ = function (id) {
@@ -47,17 +49,20 @@
     });
 
     $('btn-play').onclick = function (params) {
-      audioMgr.ctx.play();
+      audioMgr.context.play();
       console.log(
-        audioMgr.ctx.play()
+        audioMgr.context.play()
       );
 
     };
     $('btn-pause').onclick = function (params) {
-      audioMgr.ctx.pause();
+      audioMgr.context.pause();
     };
     $('btn-stop').onclick = function (params) {
-      audioMgr.ctx.stop();
+      audioMgr.context.stop();
+    };
+    $('btn-destroy').onclick = function (params) {
+      audioMgr.context.destroy();
     };
 
     console.log(audioMgr);

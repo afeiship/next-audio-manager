@@ -3,7 +3,7 @@
  * description: Audio manager.
  * homepage: https://github.com/afeiship/next-audio-manager
  * version: 1.0.0
- * date: 2020-07-04T15:19:53.699Z
+ * date: 2020-07-04T15:33:53.547Z
  * license: MIT
  */
 
@@ -21,9 +21,6 @@
         nx.mix(this.element, this.options);
         this.context = new NxAudio(this.element, this.options);
         document.body.appendChild(this.element);
-      },
-      destroy: function () {
-        this.context.destroy();
       }
     }
   });

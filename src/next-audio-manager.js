@@ -12,9 +12,6 @@
         nx.mix(this.element, this.options);
         this.context = new NxAudio(this.element, this.options);
         document.body.appendChild(this.element);
-      },
-      destroy: function () {
-        this.context.destroy();
       }
     }
   });
