@@ -8,18 +8,24 @@
   <title>Audio Test Page</title>
   <style>
     body {
+      padding-top: 30px;
       /* text-align: center; */
     }
 
     button {
-      padding: 10px 20px;
+      padding: 14px 20px;
+      border-radius: 4px;;
       display: block;
       background: #007aff;
       color: #fff;
       width: 80%;
       margin: 0 auto;
       margin-bottom: 10px;
-      ;
+      border:none;
+    }
+
+    button:active{
+      background: #007a4f;
     }
   </style>
 </head>
@@ -34,6 +40,12 @@
   <button id="btn-pause">Pause</button>
   <button id="btn-stop">Stop</button>
   <button id="btn-destroy">Destroy</button>
+
+  <hr/>
+
+  <button id="btn-create-multiple">CreateMultiple</button>
+  <button id="btn-play-multiple">MultiplyPlay</button>
+  <button id="btn-stop-multiple">MultiplyStop</button>
 
   <script>
     var $ = function (id) {
@@ -60,6 +72,23 @@
     $('btn-destroy').onclick = function (params) {
       audioMgr.invoke('destroy');
     };
+
+    $('btn-create-multiple').onclick = function () {
+      nx.AudioManager.create([
+        { key: 'k1', src: 'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3' },
+        { key: 'k2', src: 'https://kolber.github.io/audiojs/demos/mp3/juicy.mp3' }
+      ])
+    }
+
+    $('btn-play-multiple').onclick = function () {
+      nx.AudioManager.invoke('play');
+    };
+
+    $('btn-stop-multiple').onclick = function () {
+      nx.AudioManager.invoke('stop');
+    };
+
+
 
     console.log(audioMgr);
   </script>
