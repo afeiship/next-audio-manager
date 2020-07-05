@@ -2,7 +2,7 @@
   var global = global || this || window || Function('return this')();
   var nx = global.nx || require('@feizheng/next-js-core2');
   var NxAudio = nx.Audio || require('@feizheng/next-audio');
-  var DEFAULT_OPTIONS = { key: 'nxam', controls: true, autoplay: false };
+  var DEFAULT_OPTIONS = { key: 'nxam', standalone: false, controls: true, autoplay: false };
   var MSG_KEY_CONFLICT = 'Key conflict, please change one.'
 
   var NxAudioManager = nx.declare('nx.AudioManager', {
@@ -44,8 +44,8 @@
         nx.mix(element, options);
 
         var item = instances.find(function (item) { return item.key === options.key });
-        if (item) nx.error(MSG_KEY_CONFLICT)
-        NxAudioManager._instances.push({
+        if (item) nx.error(MSG_KEY_CONFLICT);
+        !options.standalone && NxAudioManager._instances.push({
           key: options.key,
           element: element,
           context: context,

@@ -33,9 +33,11 @@ NxAudioManager.call('play');
 
 
 // ======= single =======
-const audio = NxAudioManager.create([
-  { key: 'k1', src: 'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3' },
-]);
+const audio = NxAudioManager.create({ 
+  key: 'k1',
+  standalone: true,
+  src: 'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3' 
+});
 
 audio.play();
 ```
