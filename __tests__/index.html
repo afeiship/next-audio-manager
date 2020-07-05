@@ -40,7 +40,7 @@
       return document.getElementById(id);
     };
 
-    var audioMgr = new nx.AudioManager({
+    var audioMgr = nx.AudioManager.create({
       controls: false,
       src: 'https://course-assets.alo7.com/generate/pieces/fb0/fb0c51aa44763bdd5b21ec4e97643ca74708d73af51ce3a7be777bc8e0566264.mp3',
       onChange: function (inEvent) {
@@ -49,20 +49,16 @@
     });
 
     $('btn-play').onclick = function (params) {
-      audioMgr.context.play();
-      console.log(
-        audioMgr.context.play()
-      );
-
+      audioMgr.invoke('play');
     };
     $('btn-pause').onclick = function (params) {
-      audioMgr.context.pause();
+      audioMgr.invoke('pause');;
     };
     $('btn-stop').onclick = function (params) {
-      audioMgr.context.stop();
+      audioMgr.invoke('stop');
     };
     $('btn-destroy').onclick = function (params) {
-      audioMgr.context.destroy();
+      audioMgr.invoke('destroy');
     };
 
     console.log(audioMgr);
