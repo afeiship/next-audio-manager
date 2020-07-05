@@ -15,7 +15,7 @@ npm install -S @feizheng/next-audio-manager
 | api    | params | description                   |
 | ------ | ------ | ----------------------------- |
 | create | -      | Create one/multiple instance. |
-| invoke | -      | Call context method.          |
+| call   | -      | Call context method.          |
 
 ## usage
 ```js
