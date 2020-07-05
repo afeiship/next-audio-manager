@@ -3,7 +3,7 @@
  * description: Audio manager.
  * homepage: https://github.com/afeiship/next-audio-manager
  * version: 1.0.2
- * date: 2020-07-05T10:05:00.014Z
+ * date: 2020-07-05T11:03:04.966Z
  * license: MIT
  */
 
@@ -12,6 +12,7 @@
   var nx = global.nx || require('@feizheng/next-js-core2');
   var NxAudio = nx.Audio || require('@feizheng/next-audio');
   var DEFAULT_OPTIONS = { key: 'nxam', controls: true, autoplay: false };
+  var MSG_KEY_CONFLICT = 'Key conflict, please change one.'
 
   var NxAudioManager = nx.declare('nx.AudioManager', {
     statics: {
@@ -47,9 +48,12 @@
         var options = this.options = nx.mix(null, DEFAULT_OPTIONS, inOptions);
         var element = this.element = new Audio();
         var context = this.context = new NxAudio(element, options);
+        var instances = NxAudioManager._instances;
 
         nx.mix(element, options);
 
+        var item = instances.find(function (item) { return item.key === options.key });
+        if (item) nx.error(MSG_KEY_CONFLICT)
         NxAudioManager._instances.push({
           key: options.key,
           element: element,
