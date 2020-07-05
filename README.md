@@ -12,15 +12,32 @@ npm install -S @feizheng/next-audio-manager
 ```
 
 ## apis
-| api | params | description   |
-|-----|--------|---------------|
-| get | -      | desc balabala |
+| api    | params | description                   |
+| ------ | ------ | ----------------------------- |
+| create | -      | Create one/multiple instance. |
+| invoke | -      | Call context method.          |
 
 ## usage
 ```js
 import NxAudioManager from '@feizheng/next-audio-manager';
 
-// code goes here:
+// ======= multiple =======
+NxAudioManager.create([
+  { key: 'k1', src: 'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3' },
+  { key: 'k2', src: 'https://kolber.github.io/audiojs/demos/mp3/juicy.mp3' }
+]);
+
+// stop all audios:
+NxAudioManager.call('play');
+
+
+
+// ======= single =======
+const audio = NxAudioManager.create([
+  { key: 'k1', src: 'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3' },
+]);
+
+audio.play();
 ```
 
 ## license

@@ -2,8 +2,8 @@
  * name: @feizheng/next-audio-manager
  * description: Audio manager.
  * homepage: https://github.com/afeiship/next-audio-manager
- * version: 1.0.2
- * date: 2020-07-05T11:03:04.966Z
+ * version: 1.0.3
+ * date: 2020-07-05T13:23:05.887Z
  * license: MIT
  */
 
@@ -34,7 +34,7 @@
           return item.key === inKey;
         });
       },
-      invoke: function (inName) {
+      call: function (inName) {
         var instances = this.gets();
         var args = nx.slice(arguments, 1);
         return instances.map(function (instance) {
@@ -61,7 +61,7 @@
           options: options
         });
       },
-      invoke: function (inName) {
+      call: function (inName) {
         var args = nx.slice(arguments, 1);
         var ctx = this.context;
         return ctx[inName].apply(ctx, args);

@@ -25,7 +25,7 @@
           return item.key === inKey;
         });
       },
-      invoke: function (inName) {
+      call: function (inName) {
         var instances = this.gets();
         var args = nx.slice(arguments, 1);
         return instances.map(function (instance) {
@@ -52,7 +52,7 @@
           options: options
         });
       },
-      invoke: function (inName) {
+      call: function (inName) {
         var args = nx.slice(arguments, 1);
         var ctx = this.context;
         return ctx[inName].apply(ctx, args);

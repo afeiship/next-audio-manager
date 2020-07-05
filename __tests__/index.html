@@ -61,16 +61,16 @@
     });
 
     $('btn-play').onclick = function (params) {
-      audioMgr.invoke('play');
+      audioMgr.call('play');
     };
     $('btn-pause').onclick = function (params) {
-      audioMgr.invoke('pause');;
+      audioMgr.call('pause');;
     };
     $('btn-stop').onclick = function (params) {
-      audioMgr.invoke('stop');
+      audioMgr.call('stop');
     };
     $('btn-destroy').onclick = function (params) {
-      audioMgr.invoke('destroy');
+      audioMgr.call('destroy');
     };
 
     $('btn-create-multiple').onclick = function () {
@@ -81,11 +81,11 @@
     }
 
     $('btn-play-multiple').onclick = function () {
-      nx.AudioManager.invoke('play');
+      nx.AudioManager.call('play');
     };
 
     $('btn-stop-multiple').onclick = function () {
-      nx.AudioManager.invoke('stop');
+      nx.AudioManager.call('stop');
     };
 
 
