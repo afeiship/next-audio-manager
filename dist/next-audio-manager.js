@@ -3,7 +3,7 @@
  * description: Audio manager.
  * homepage: https://github.com/afeiship/next-audio-manager
  * version: 1.0.5
- * date: 2020-07-06T01:50:54.698Z
+ * date: 2020-07-06T02:14:14.068Z
  * license: MIT
  */
 
@@ -34,37 +34,44 @@
           return item.key === inKey;
         });
       },
-      call: function (inName) {
-        var instances = this.gets();
-        var args = nx.slice(arguments, 1);
-        return instances.map(function (instance) {
-          var ctx = instance.context;
-          return ctx[inName].apply(ctx, args);
-        });
+      'method,property': function (inName) {
+        return function () {
+          var args = arguments;
+          var instances = this.gets();
+          return instances.map(function (instance) {
+            var ctx = instance.value;
+            return ctx[inName].apply(ctx, args);
+          });
+        };
       }
     },
     methods: {
       init: function (inOptions) {
         var options = this.options = nx.mix(null, DEFAULT_OPTIONS, inOptions);
         var element = this.element = new Audio();
-        var context = this.context = new NxAudio(element, options);
-        var instances = NxAudioManager._instances;
+        var instances = NxAudioManager.gets();
 
+        this.context = new NxAudio(element, options);
         nx.mix(element, options);
 
         var item = instances.find(function (item) { return item.key === options.key });
         if (item) nx.error(MSG_KEY_CONFLICT);
         !options.standalone && instances.push({
           key: options.key,
-          element: element,
-          context: context,
-          options: options
+          value: this
         });
       },
-      call: function (inName) {
+      method: function (inName) {
         var args = nx.slice(arguments, 1);
         var ctx = this.context;
         return ctx[inName].apply(ctx, args);
+      },
+      property: function (inName, inValue) {
+        var ctx = this.context;
+        if (typeof inValue === 'undefined') {
+          return ctx[inName];
+        }
+        return ctx[inName] = inValue;
       }
     }
   });

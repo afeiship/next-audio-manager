@@ -46,6 +46,7 @@
   <button id="btn-create-multiple">CreateMultiple</button>
   <button id="btn-play-multiple">MultiplyPlay</button>
   <button id="btn-stop-multiple">MultiplyStop</button>
+  <button id="btn-times-multiple">GetTimes</button>
 
   <script>
     var $ = function (id) {
@@ -61,16 +62,16 @@
     });
 
     $('btn-play').onclick = function (params) {
-      audioMgr.call('play');
+      audioMgr.method('play');
     };
     $('btn-pause').onclick = function (params) {
-      audioMgr.call('pause');;
+      audioMgr.method('pause');;
     };
     $('btn-stop').onclick = function (params) {
-      audioMgr.call('stop');
+      audioMgr.method('stop');
     };
     $('btn-destroy').onclick = function (params) {
-      audioMgr.call('destroy');
+      audioMgr.method('destroy');
     };
 
     $('btn-create-multiple').onclick = function () {
@@ -81,16 +82,17 @@
     }
 
     $('btn-play-multiple').onclick = function () {
-      nx.AudioManager.call('play');
+      nx.AudioManager.method('play');
     };
 
     $('btn-stop-multiple').onclick = function () {
-      nx.AudioManager.call('stop');
+      nx.AudioManager.method('stop');
     };
 
-
-
-    console.log(audioMgr);
+    $('btn-times-multiple').onclick = function() {
+      var res = nx.AudioManager.property('times');
+      console.log(res);
+    };
   </script>
 </body>
 

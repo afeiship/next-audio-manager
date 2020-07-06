@@ -12,10 +12,11 @@ npm install -S @feizheng/next-audio-manager
 ```
 
 ## apis
-| api    | params | description                   |
-| ------ | ------ | ----------------------------- |
-| create | -      | Create one/multiple instance. |
-| call   | -      | Call context method.          |
+| api      | params | description                   |
+| -------- | ------ | ----------------------------- |
+| create   | -      | Create one/multiple instance. |
+| method   | -      | Call context method.          |
+| property | -      | Call context property.        |
 
 ## usage
 ```js
@@ -28,7 +29,7 @@ NxAudioManager.create([
 ]);
 
 // stop all audios:
-NxAudioManager.call('play');
+NxAudioManager.method('play');
 
 
 
@@ -38,7 +39,7 @@ const audio = NxAudioManager.create({
   src: 'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3' 
 });
 
-audio.call('play');
+audio.method('play');
 ```
 
 ## license
