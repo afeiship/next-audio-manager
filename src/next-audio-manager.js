@@ -45,7 +45,7 @@
 
         var item = instances.find(function (item) { return item.key === options.key });
         if (item) nx.error(MSG_KEY_CONFLICT);
-        !options.standalone && NxAudioManager._instances.push({
+        !options.standalone && instances.push({
           key: options.key,
           element: element,
           context: context,

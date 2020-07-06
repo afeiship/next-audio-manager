@@ -2,8 +2,8 @@
  * name: @feizheng/next-audio-manager
  * description: Audio manager.
  * homepage: https://github.com/afeiship/next-audio-manager
- * version: 1.0.4
- * date: 2020-07-05T13:25:56.053Z
+ * version: 1.0.5
+ * date: 2020-07-06T01:50:54.698Z
  * license: MIT
  */
 
@@ -54,7 +54,7 @@
 
         var item = instances.find(function (item) { return item.key === options.key });
         if (item) nx.error(MSG_KEY_CONFLICT);
-        !options.standalone && NxAudioManager._instances.push({
+        !options.standalone && instances.push({
           key: options.key,
           element: element,
           context: context,
