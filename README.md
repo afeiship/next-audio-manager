@@ -8,7 +8,7 @@
 
 ## installation
 ```bash
-npm install -S @feizheng/next-audio-manager
+npm install -S @jswork/next-audio-manager
 ```
 
 ## apis
@@ -20,7 +20,7 @@ npm install -S @feizheng/next-audio-manager
 
 ## usage
 ```js
-import NxAudioManager from '@feizheng/next-audio-manager';
+import NxAudioManager from '@jswork/next-audio-manager';
 
 // ======= multiple =======
 NxAudioManager.create([
@@ -45,14 +45,14 @@ audio.method('play');
 ## license
 Code released under [the MIT license](https://github.com/afeiship/next-audio-manager/blob/master/LICENSE.txt).
 
-[version-image]: https://img.shields.io/npm/v/@feizheng/next-audio-manager
-[version-url]: https://npmjs.org/package/@feizheng/next-audio-manager
+[version-image]: https://img.shields.io/npm/v/@jswork/next-audio-manager
+[version-url]: https://npmjs.org/package/@jswork/next-audio-manager
 
-[license-image]: https://img.shields.io/npm/l/@feizheng/next-audio-manager
+[license-image]: https://img.shields.io/npm/l/@jswork/next-audio-manager
 [license-url]: https://github.com/afeiship/next-audio-manager/blob/master/LICENSE.txt
 
-[size-image]: https://img.shields.io/bundlephobia/minzip/@feizheng/next-audio-manager
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/next-audio-manager
 [size-url]: https://github.com/afeiship/next-audio-manager/blob/master/dist/next-audio-manager.min.js
 
-[download-image]: https://img.shields.io/npm/dm/@feizheng/next-audio-manager
-[download-url]: https://www.npmjs.com/package/@feizheng/next-audio-manager
+[download-image]: https://img.shields.io/npm/dm/@jswork/next-audio-manager
+[download-url]: https://www.npmjs.com/package/@jswork/next-audio-manager

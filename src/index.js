@@ -1,18 +1,9 @@
-/*!
- * name: @feizheng/next-audio-manager
- * description: Audio manager.
- * homepage: https://github.com/afeiship/next-audio-manager
- * version: 1.0.6
- * date: 2020-07-06T02:28:18.440Z
- * license: MIT
- */
-
 (function () {
   var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('@feizheng/next-js-core2');
-  var NxAudio = nx.Audio || require('@feizheng/next-audio');
+  var nx = global.nx || require('@jswork/next');
+  var NxAudio = nx.Audio || require('@jswork/next-audio');
   var DEFAULT_OPTIONS = { key: 'nxam', standalone: false };
-  var MSG_KEY_CONFLICT = 'Key: %s conflict, please change one.'
+  var MSG_KEY_CONFLICT = 'Key: %s conflict, please change one.';
 
   var NxAudioManager = nx.declare('nx.AudioManager', {
     statics: {
@@ -21,7 +12,7 @@
         if (Array.isArray(inOptions)) {
           return inOptions.map(function (option) {
             return this.create(option);
-          }, this)
+          }, this);
         }
         return new this(inOptions);
       },
@@ -47,19 +38,22 @@
     },
     methods: {
       init: function (inOptions) {
-        var options = this.options = nx.mix(null, DEFAULT_OPTIONS, inOptions);
-        var element = this.element = new Audio();
+        var options = (this.options = nx.mix(null, DEFAULT_OPTIONS, inOptions));
+        var element = (this.element = new Audio());
         var instances = NxAudioManager.gets();
 
         this.context = new NxAudio(element, options);
         nx.mix(element, options);
 
-        var item = instances.find(function (item) { return item.key === options.key });
-        if (item) return console.warn(MSG_KEY_CONFLICT, options.key);
-        !options.standalone && instances.push({
-          key: options.key,
-          value: this
+        var item = instances.find(function (item) {
+          return item.key === options.key;
         });
+        if (item) return console.warn(MSG_KEY_CONFLICT, options.key);
+        !options.standalone &&
+          instances.push({
+            key: options.key,
+            value: this
+          });
       },
       method: function (inName) {
         var args = nx.slice(arguments, 1);
@@ -71,7 +65,7 @@
         if (typeof inValue === 'undefined') {
           return ctx[inName];
         }
-        return ctx[inName] = inValue;
+        return (ctx[inName] = inValue);
       }
     }
   });
@@ -80,5 +74,3 @@
     module.exports = NxAudioManager;
   }
 })();
-
-//# sourceMappingURL=next-audio-manager.js.map
