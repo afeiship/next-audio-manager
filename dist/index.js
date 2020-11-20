@@ -3,7 +3,7 @@
  * description: Audio manager.
  * homepage: https://github.com/afeiship/next-audio-manager
  * version: 1.0.0
- * date: 2020-11-20 20:44:48
+ * date: 2020-11-20 20:45:36
  * license: MIT
  */
 

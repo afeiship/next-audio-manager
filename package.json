@@ -37,5 +37,10 @@
   },
   "dependencies": {
     "@jswork/next-audio": "^1.0.0"
-  }
+  },
+  "keywords": [
+    "next",
+    "audio",
+    "manager"
+  ]
 }
